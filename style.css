@@ -1,5 +1,5 @@
 body {
-    background: #0f172a;
+    background: #848da1;
     color: white;
     font-family: Arial, sans-serif;
 }
@@ -11,6 +11,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 14px;
+}
+.price {
+    margin-left: 16px; /* space after BTC, ETH, etc. */
 }
 
 .coin-row {
