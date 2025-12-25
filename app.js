@@ -32,16 +32,58 @@ ws.onmessage = function (event) {
   const msg = JSON.parse(event.data);
   const d = msg.data;
 
-  prices[d.s] = d.c;
+  const symbol = d.s;
+  const newPrice = parseFloat(d.c);
+  const oldPrice = prevPrices[symbol];
 
-  if (d.s === "BTCUSDT") btc.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "ETHUSDT") eth.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "BNBUSDT") bnb.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "ADAUSDT") adl.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "SOLUSDT") sol.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "XRPUSDT") xrp.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "DOGEUSDT") doge.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "DOTUSDT") dot.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "AVAXUSDT") ava.innerText = d.s + ": " + prices[d.s];
-  else if (d.s === "LTCUSDT") ltc.innerText = d.s + ": " + prices[d.s];
+  prices[symbol] = newPrice;
+
+  let color = "black";
+  if (oldPrice !== undefined) {
+    if (newPrice > oldPrice) color = "green";
+    else if (newPrice < oldPrice) color = "red";
+  }
+
+  prevPrices[symbol] = newPrice;
+
+  if (symbol === "BTCUSDT") {
+    btc.innerText = symbol + ": " + newPrice;
+    btc.style.color = color;
+  }
+  else if (symbol === "ETHUSDT") {
+    eth.innerText = symbol + ": " + newPrice;
+    eth.style.color = color;
+  }
+  else if (symbol === "BNBUSDT") {
+    bnb.innerText = symbol + ": " + newPrice;
+    bnb.style.color = color;
+  }
+  else if (symbol === "ADAUSDT") {
+    adl.innerText = symbol + ": " + newPrice;
+    adl.style.color = color;
+  }
+  else if (symbol === "SOLUSDT") {
+    sol.innerText = symbol + ": " + newPrice;
+    sol.style.color = color;
+  }
+  else if (symbol === "XRPUSDT") {
+    xrp.innerText = symbol + ": " + newPrice;
+    xrp.style.color = color;
+  }
+  else if (symbol === "DOGEUSDT") {
+    doge.innerText = symbol + ": " + newPrice;
+    doge.style.color = color;
+  }
+  else if (symbol === "DOTUSDT") {
+    dot.innerText = symbol + ": " + newPrice;
+    dot.style.color = color;
+  }
+  else if (symbol === "AVAXUSDT") {
+    ava.innerText = symbol + ": " + newPrice;
+    ava.style.color = color;
+  }
+  else if (symbol === "LTCUSDT") {
+    ltc.innerText = symbol + ": " + newPrice;
+    ltc.style.color = color;
+  }
 };
