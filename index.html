@@ -11,6 +11,15 @@
 </head>
 
 <body>
+    <div class="profile-bar">
+        <div class="profile-info">
+            <div class="avatar">A</div>
+            <span class="username">Arkar</span>
+        </div>
+        <button class="logout-btn">Logout</button>
+    </div>
+    <!-- instead of hi, I want to create a profle type which has name and the btn to log out, can u please make it?-->
+
     <div id="scroll-container">
 
         <div class="coin-row">
@@ -74,6 +83,17 @@
         </div>
 
     </div>
+    <div class="bottom-panel">
+        <div class="balance-card">
+            <span class="balance-label">Total Balance</span>
+            <span class="balance-amount" id="balance">$ ---</span>
+        </div>
+    
+        <button id="gotodashboard" class="dashboard-btn">
+            Go to Dashboard
+        </button>
+    </div>
+    
 
     <script src="app.js" defer></script>
 </body>
