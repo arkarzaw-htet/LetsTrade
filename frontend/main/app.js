@@ -8,6 +8,7 @@ const doge = document.getElementById("doge-price");
 const dot  = document.getElementById("dot-price");
 const ava  = document.getElementById("ava-price");
 const ltc  = document.getElementById("ltc-price");
+const logoutbtn = document.getElementById("logoutbtn")
 
 const prices = {};
 const prevPrices = {};   // ✅ THIS WAS MISSING
@@ -27,6 +28,11 @@ const ws = new WebSocket(
     "ltcusdt@miniTicker"
   ].join("/")
 );
+logoutbtn.addEventListener('click' , (event) => {
+    window.location.href = "../login/login.html";
+
+
+});
 
 ws.onmessage = function (event) {
   const msg = JSON.parse(event.data);
@@ -38,7 +44,7 @@ ws.onmessage = function (event) {
 
   prices[symbol] = newPrice;
 
-  let color = "black";
+  let color = "white";
   if (oldPrice !== undefined) {
     if (newPrice > oldPrice) color = "green";
     else if (newPrice < oldPrice) color = "red";
